@@ -152,13 +152,21 @@
 
                     if (currentLevel === 1) {
                         // Draw Level 1 enemy appearance  
-                        ctx.fillStyle = enemyColors[Math.floor(Math.random() * enemyColors.length)];
-                        ctx.fillRect(enemy.x, enemy.y, enemyWidth, enemyHeight);
-                        ctx.fillStyle = "black";
-                        ctx.fillRect(enemy.x + 10, enemy.y + 10, 20, 5);
-                        ctx.fillRect(enemy.x + 5, enemy.y + 15, 30, 5);
-                        ctx.fillRect(enemy.x, enemy.y + 20, 40, 5);
-                        ctx.fillRect(enemy.x + 10, enemy.y + 25, 20, 5);
+                        const spiderColor = "#808080";
+                        ctx.fillStyle = spiderColor;
+            ctx.fillRect(enemy.x + 10, enemy.y + 15, 20, 10);
+
+            // Eyes
+            ctx.fillStyle = "white";
+            ctx.fillRect(enemy.x + 13, enemy.y + 13, 4, 4);
+            ctx.fillRect(enemy.x + 23, enemy.y + 13, 4, 4);
+
+            // Legs
+            ctx.fillStyle = "black";
+            ctx.fillRect(enemy.x + 12, enemy.y + 22, 2, 6);
+            ctx.fillRect(enemy.x + 16, enemy.y + 22, 2, 6);
+            ctx.fillRect(enemy.x + 20, enemy.y + 22, 2, 6);
+            ctx.fillRect(enemy.x + 24, enemy.y + 22, 2, 6);
                     }
 
                     if (currentLevel === 2) {
