@@ -82,7 +82,7 @@
             currentLevel = 1;
             playerLives = 3;
             enemySpeed = 1; // Default enemy speed
-            enemyBulletSpeed = 3; 
+            enemyBulletSpeed = 3;
             score = 0;
             createEnemies();
         }
@@ -152,40 +152,31 @@
 
                     if (currentLevel === 1) {
                         // Draw Level 1 enemy appearance  
-                        const spiderColor = "#808080";
-                        ctx.fillStyle = spiderColor;
-            ctx.fillRect(enemy.x + 10, enemy.y + 15, 20, 10);
-
-            // Eyes
-            ctx.fillStyle = "white";
-            ctx.fillRect(enemy.x + 13, enemy.y + 13, 4, 4);
-            ctx.fillRect(enemy.x + 23, enemy.y + 13, 4, 4);
-
-            // Legs
-            ctx.fillStyle = "black";
-            ctx.fillRect(enemy.x + 12, enemy.y + 22, 2, 6);
-            ctx.fillRect(enemy.x + 16, enemy.y + 22, 2, 6);
-            ctx.fillRect(enemy.x + 20, enemy.y + 22, 2, 6);
-            ctx.fillRect(enemy.x + 24, enemy.y + 22, 2, 6);
+                        ctx.fillStyle = enemyColors[Math.floor(Math.random() * enemyColors.length)];
+                        ctx.fillRect(enemy.x, enemy.y, enemyWidth, enemyHeight);
+                        ctx.fillStyle = "black";
+                        ctx.fillRect(enemy.x + 10, enemy.y + 10, 20, 5);
+                        ctx.fillRect(enemy.x + 5, enemy.y + 15, 30, 5);
+                        ctx.fillRect(enemy.x, enemy.y + 20, 40, 5);
+                        ctx.fillRect(enemy.x + 10, enemy.y + 25, 20, 5);
                     }
 
                     if (currentLevel === 2) {
-                        ctx.fillStyle = "black";
-                        ctx.fillRect(enemy.x + 15, enemy.y + 10, 10, 10);
-                        ctx.fillRect(enemy.x + 10, enemy.y + 20, 20, 10);
-                        ctx.fillRect(enemy.x, enemy.y + 30, 40, 10);
+                        const spiderColor = "#808080";
+                        ctx.fillStyle = spiderColor;
+                        ctx.fillRect(enemy.x + 10, enemy.y + 15, 20, 10);
 
-                        // Draw pixelated spider legs
-                        ctx.fillStyle = "#A52A2A"; // Brown color for legs
-                        ctx.fillRect(enemy.x + 10, enemy.y, 2, 10);
-                        ctx.fillRect(enemy.x + 20, enemy.y, 2, 10);
-                        ctx.fillRect(enemy.x + 30, enemy.y, 2, 10);
-                        ctx.fillRect(enemy.x + 5, enemy.y + 10, 2, 10);
-                        ctx.fillRect(enemy.x + 35, enemy.y + 10, 2, 10);
-                        ctx.fillRect(enemy.x + 10, enemy.y + 20, 2, 10);
-                        ctx.fillRect(enemy.x + 30, enemy.y + 20, 2, 10);
-                        ctx.fillRect(enemy.x + 15, enemy.y + 30, 2, 10);
-                        ctx.fillRect(enemy.x + 25, enemy.y + 30, 2, 10);
+                        // Eyes
+                        ctx.fillStyle = "white";
+                        ctx.fillRect(enemy.x + 13, enemy.y + 13, 4, 4);
+                        ctx.fillRect(enemy.x + 23, enemy.y + 13, 4, 4);
+
+                        // Legs
+                        ctx.fillStyle = "black";
+                        ctx.fillRect(enemy.x + 12, enemy.y + 22, 2, 6);
+                        ctx.fillRect(enemy.x + 16, enemy.y + 22, 2, 6);
+                        ctx.fillRect(enemy.x + 20, enemy.y + 22, 2, 6);
+                        ctx.fillRect(enemy.x + 24, enemy.y + 22, 2, 6);
                     }
                 }
             });
