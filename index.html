@@ -59,12 +59,7 @@
         let playerLives = 3;
         let currentLevel = 1;
         const maxLevels = 2;
-        const spiderImages = [];
-        for (let i = 1; i <= 3; i++) {
-            const spiderImage = new Image();
-            spiderImage.src = `spider${i}.png`; // Replace with the actual image paths
-            spiderImages.push(spiderImage);
-        }
+
         // Event listener for Enter key press to restart the game
         document.addEventListener("keydown", restartGame);
 
@@ -167,7 +162,22 @@
                     }
 
                     if (currentLevel === 2) {
-                        ctx.drawImage(spiderImages[index % spiderImages.length], enemy.x, enemy.y, enemyWidth, enemyHeight);
+                        ctx.fillStyle = "black";
+                        ctx.fillRect(enemy.x + 15, enemy.y + 10, 10, 10);
+                        ctx.fillRect(enemy.x + 10, enemy.y + 20, 20, 10);
+                        ctx.fillRect(enemy.x, enemy.y + 30, 40, 10);
+
+                        // Draw pixelated spider legs
+                        ctx.fillStyle = "#A52A2A"; // Brown color for legs
+                        ctx.fillRect(enemy.x + 10, enemy.y, 2, 10);
+                        ctx.fillRect(enemy.x + 20, enemy.y, 2, 10);
+                        ctx.fillRect(enemy.x + 30, enemy.y, 2, 10);
+                        ctx.fillRect(enemy.x + 5, enemy.y + 10, 2, 10);
+                        ctx.fillRect(enemy.x + 35, enemy.y + 10, 2, 10);
+                        ctx.fillRect(enemy.x + 10, enemy.y + 20, 2, 10);
+                        ctx.fillRect(enemy.x + 30, enemy.y + 20, 2, 10);
+                        ctx.fillRect(enemy.x + 15, enemy.y + 30, 2, 10);
+                        ctx.fillRect(enemy.x + 25, enemy.y + 30, 2, 10);
                     }
                 }
             });
@@ -366,6 +376,9 @@
                 // Ask the player to press Enter to start again
                 resetEnemyParameters();
                 document.addEventListener("keydown", restartGame);
+                if (currentLevel === maxLevels) {
+                    resetEnemyParameters();
+                }
             }
 
             // Check if the player has lost
